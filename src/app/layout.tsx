@@ -1,15 +1,24 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { GSAPProvider } from "./GsapProvider";
+import { Header } from "@/components/header";
+import { navItems } from "@/lib/constants";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Thypro - Your Complete Healthcare Companion",
   description:
     "Revolutionizing emergency response and wellness in developing regions with unified healthcare solutions, real-time emergency services, and AI-powered health support.",
-  keywords: ["healthcare", "emergency", "health vault", "blood donation", "AI health assistant"],
+  keywords: [
+    "healthcare",
+    "emergency",
+    "health vault",
+    "blood donation",
+    "AI health assistant",
+  ],
   authors: [{ name: "Thypro Team" }],
   openGraph: {
     title: "Thypro - Your Complete Healthcare Companion",
@@ -17,17 +26,20 @@ export const metadata: Metadata = {
       "Revolutionizing emergency response and wellness in developing regions with unified healthcare solutions.",
     type: "website",
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body className={inter.className}>
+        <Header navItems={navItems} />
+        <GSAPProvider>{children}</GSAPProvider>
+      </body>
     </html>
-  )
+  );
 }
