@@ -5,6 +5,7 @@ import "./globals.css";
 import { GSAPProvider } from "./GsapProvider";
 import { Header } from "@/components/header";
 import { navItems } from "@/lib/constants";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +27,6 @@ export const metadata: Metadata = {
       "Revolutionizing emergency response and wellness in developing regions with unified healthcare solutions.",
     type: "website",
   },
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
@@ -39,6 +39,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header navItems={navItems} />
         <GSAPProvider>{children}</GSAPProvider>
+        <Footer />
       </body>
     </html>
   );

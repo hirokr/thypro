@@ -22,41 +22,6 @@ export default function HomePage() {
   const featuresRef = useRef<HTMLDivElement>(null);
   const featureCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Continuous jumping animation for feature cards
-    const jumpAnimation = () => {
-      featureCardsRef.current.forEach((card, index) => {
-        if (card) {
-          gsap.to(card, {
-            y: -20,
-            duration: 0.2,
-            ease: "power2.out",
-            delay: 0,
-            yoyo: true,
-            repeat: 1,
-          });
-        }
-      });
-    };
-
-    // Initial jump animation on scroll
-    ScrollTrigger.create({
-      trigger: featuresRef.current,
-      start: "top 80%",
-      onEnter: jumpAnimation,
-    });
-
-    // Continuous jumping every 4 seconds
-    const jumpInterval = setInterval(jumpAnimation, 4000);
-
-    return () => {
-      clearInterval(jumpInterval);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
   return (
     <main className='bg-background'>
       {/* <Header navItems={navItems} /> */}
@@ -65,7 +30,7 @@ export default function HomePage() {
       <AboutSection counters={counters} />
       <AppImages />
       {/* <CTASection /> */}
-      <Footer />
+
     </main>
   );
 }
