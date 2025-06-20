@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header navItems={navItems} />
         <GSAPProvider>{children}</GSAPProvider>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

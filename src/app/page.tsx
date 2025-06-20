@@ -30,7 +30,8 @@ export default function HomePage() {
       <AboutSection counters={counters} />
       <AppImages />
       {/* <CTASection /> */}
-
+      <Footer />
+      
     </main>
   );
 }
